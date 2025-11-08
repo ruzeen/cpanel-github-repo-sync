@@ -1,6 +1,6 @@
 <?php
 // webhook.php
-$secret = '9a3f6c4e1d8b2e7d90a71c5f8b19e3a2x4f6d8c7e1f9a3b0c2d7e6a5f4b1c9d8'; // long random string
+$secret = '<your-secret>'; // long random string
 
 $signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
 $payload = file_get_contents('php://input');
@@ -13,7 +13,6 @@ if (!hash_equals($hash, $signature)) {
 }
 
 // Run deploy script.
-// Change /home/ruzeen/public_html/cpanel-github-repo-sync to your actual path.
-shell_exec('/home/ruzeen/public_html/cpanel-github-repo-sync/deploy_from_github.sh > /dev/null 2>&1 &');
+shell_exec('/home/username/public_html/repo/deploy_from_github.sh > /dev/null 2>&1 &');
 http_response_code(200);
 echo 'Deployment triggered';
