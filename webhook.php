@@ -12,7 +12,8 @@ if (!hash_equals($hash, $signature)) {
   exit('Invalid signature');
 }
 
-// Run deploy script
+// Run deploy script.
+// Change /home/ruzeen/public_html/cpanel-github-repo-sync to your actual path.
 shell_exec('/home/ruzeen/public_html/cpanel-github-repo-sync/deploy_from_github.sh > /dev/null 2>&1 &');
 http_response_code(200);
 echo 'Deployment triggered';
