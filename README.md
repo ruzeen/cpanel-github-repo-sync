@@ -97,12 +97,10 @@ In this example, we use a GitHub webhook to pull the latest changes from the rep
    - Choose "Just the push event".
    - Click "Add webhook".
 
-8. **Test the Setup**:
+8. **Test the Setup and Verify the Changes**:
    - Make a change in your GitHub repository and push it to the main branch.
    - The webhook should trigger the script in cPanel, pulling the latest changes to your cPanel repository.
-9. **Verify the Changes**:
-
-- Check the files in your cPanel repository to ensure that the changes from GitHub have been successfully pulled.
+   - Check the files in your cPanel repository to ensure that the changes from GitHub have been successfully pulled.
 
 ### Conclusion
 
