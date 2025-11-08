@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ruzeen/public_html/cpanel-github-repo-sync
+    - /bin/rsync -av --exclude='.git' --exclude='.cpanel.yml' --exclude='webhook.php' ./ $DEPLOYPATH
