@@ -6,18 +6,19 @@ In this example, we use a GitHub webhook to pull the latest changes from the rep
 
 ### Prerequisites
 
-- A cPanel account with Git Version Control feature enabled.
-- A GitHub repository that you want to sync with your cPanel account.
+- A cPanel account with Git Version Control and SSH Access enabled.
+- A GitHub repository that you want to sync with your cPanel account; you can use this repository as a starting point.
 
 ### Steps to Sync cPanel Repository with GitHub Repository
 
 1. **Create a GitHub Repository**: Clone this repository to your local machine and push it to your GitHub account.
 2. **Set Up Git Version Control in cPanel**:
    - Log in to your cPanel account.
+   - Create a new empty directory where you want to clone the GitHub repository.
    - Navigate to the "Git Version Control" feature.
    - Click on "Create" to set up a new repository.
    - Choose "Clone a Repository" and enter the URL of your GitHub repository.
-   - Provide the path to your desired directory in cPanel where the repository will be cloned (existing empty directory).
+   - Provide the path to the directory you created earlier.
    - Click "Create" to clone the repository to your cPanel account.
 3. **Update .cpanel.yml**:
 
@@ -66,7 +67,7 @@ In this example, we use a GitHub webhook to pull the latest changes from the rep
 
 6. **Generate SSH Keys**:
 
-   - On your computer (not Cpanel), open a terminal and run the following command to generate SSH keys:
+   - On your local machine, open a terminal and run the following command to generate SSH keys:
 
    ```bash
    ssh-keygen -t ed25519 -f github-actions-deploy -C "github-actions-deploy-to-cpanel" -N ""
@@ -94,6 +95,7 @@ In this example, we use a GitHub webhook to pull the latest changes from the rep
    - Click "Add webhook".
    - In the "Payload URL" field, enter the URL to a script on your cPanel account that will handle the webhook (eg: `https://yourdomain.com/repo/webhook.php`).
    - Set the "Content type" to "application/json".
+   - In the "Secret" field, enter the same secret string you used in `webhook.php`.
    - Choose "Just the push event".
    - Click "Add webhook".
 
